@@ -1,0 +1,29 @@
+{
+  "name": "RandomPeople.Web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "axios": "^0.19.2",
+    "bootstrap": "^3.4.1",
+    "immer": "^6.0.5",
+    "moment": "^2.26.0",
+    "react": "^16.4.1",
+    "react-bootstrap": "^0.31.5",
+    "react-bootstrap-slider": "^2.2.3",
+    "react-calendar": "^3.1.0",
+    "react-dom": "^16.4.1",
+    "react-minimal-pie-chart": "^8.0.1",
+    "react-router-bootstrap": "^0.24.4",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17",
+    "rimraf": "^2.6.2",
+    "use-immer": "^0.4.0"
+  },
+  "scripts": {
+    "start": "rimraf ./build && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
