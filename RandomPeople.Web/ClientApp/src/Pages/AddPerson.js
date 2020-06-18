@@ -10,7 +10,7 @@ class AddPerson extends React.Component {
         person: {
             firstName: '',
             lastName: '',
-            age: '', 
+            age: '',
             dateOfBirth: new Date(),
         }
     };
@@ -21,38 +21,37 @@ class AddPerson extends React.Component {
         this.setState(nextState);
     }
     onAddClick = async () => {
-        const response = await axios.post('/api/person/AddPerson', this.state.person);
+        await axios.post('/api/person/AddPerson', this.state.person);
         this.props.history.push('/');;
     }
     handleChange = date => {
-        this.setState({
-            dateOfBirth: date
+        const nextState = produce(this.state, draftState => {
+            draftState.person.dateOfBirth = date;
         });
-    };
-    onChange = date => this.setState({ date:dateOfBirth })
-    render() {
-
-        return (
-            <div className="well" style={{ marginTop: 60 }}>
-                <div className="row">
-                    <div className="col-md-12">
-                        <input type="text" className="form-control" placeholder="First Name" name="firstName" onChange={this.onTextChange} />
-                        <input type="text" className="form-control" placeholder="Last Name" name="lastName" onChange={this.onTextChange} />
-                        <input type="text" className="form-control" placeholder="Age" name="age" onChange={this.onTextChange} />
-                        <label> Date of Birth</label>
-                        <Calendar
-                            selected={this.state.dateOfBirth}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                </div>
-                <div className="container" style={{ marginTop: 20 }}>
-                    <div className="row">
-                        <button className="btn btn-primary" onClick={this.onAddClick}>Add Person</button>
-                    </div>
-                </div>
-            </div>
-        )
+        this.setState(nextState);
     }
-}
-export default AddPerson;
+        render(){
+            return (
+                <div className="well" style={{ marginTop: 60 }}>
+                    <div className="row">
+                        <div className="col-md-12">
+                            <input type="text" className="form-control" placeholder="First Name" name="firstName" onChange={this.onTextChange} />
+                            <input type="text" className="form-control" placeholder="Last Name" name="lastName" onChange={this.onTextChange} />
+                            <input type="text" className="form-control" placeholder="Age" name="age" onChange={this.onTextChange} />
+                            <label> Date of Birth</label>
+                            <Calendar
+                                selected={this.state.dateOfBirth}
+                                onChange={this.handleChange}
+                            />
+                        </div>
+                    </div>
+                    <div className="container" style={{ marginTop: 20 }}>
+                        <div className="row">
+                            <button className="btn btn-primary" onClick={this.onAddClick}>Add Person</button>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+    }
+    export default AddPerson;

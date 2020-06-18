@@ -28,7 +28,7 @@ class Home extends React.Component {
             <div style={{ backgroundColor: 'white', minHeight: 1000, paddingTop: 10 }}>
                 <button className="btn btn-danger" onClick={this.togglePieMode}>Toggle Pie Chart</button>
                 {!!this.state.pieChartMode && 
-                    <PieChart viewBoxSize="[800,800]" animate="true" data={[
+                    <PieChart  animate="true" data={[
                     { title: "ages: 1 - 10", value: people.filter(p => p.age > 0 && p.age < 10).length, color: "#AEA1FF" },
                     { title: "ages: 10 - 20", value: people.filter(p => p.age > 10 && p.age < 20).length, color: "#E27300" },
                     { title: "ages: 20 - 30", value: people.filter(p => p.age > 20 && p.age < 30).length, color: "#FA28FF" },
